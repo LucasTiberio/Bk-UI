@@ -6,3 +6,4 @@ This page is officially being used in every Burger King in Brazil.
 * C3.js & Chart libraries
 * HTML Table optimization
 * Responsivity & bootstrap
+* Automated events
