@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/codes.js"></script>
+
+    <title>BurgerKing: Gerenciamento</title>
+</head>
+<body>
+
+    <div class="conteudo">
+
+        <div class="row text-center">
+            <div class="col-sm-2">
+                <h6 id="att">Atualizando em 120s</h6>
+            </div>
+            <div class="col-sm-7">
+                <p>Mostrando as informações de todas as unidades. Para visualizar uma unidade expecífica, clique no nome da unidade.</p>
+            </div>
+            <div class="col-sm-3">
+                
+                <div class="input-group input-group-sm">
+                        
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-success" type="button" onclick="attDate()">Atualizar</button>
+                    </div>
+                    <input id="dataSelector" type="date">
+                    <button class="btn btn-outline-danger btn-sm">Sair</button>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive" style="margin-top: 1rem;">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Uniorg</th>
+                        <th>Dados</th>
+                        <th>00:00</th>
+                        <th>01:00</th>
+                        <th>02:00</th>
+                        <th>03:00</th>
+                        <th>04:00</th>
+                        <th>05:00</th>
+                        <th>06:00</th>
+                        <th>07:00</th>
+                        <th>08:00</th>
+                        <th>09:00</th>
+                        <th>10:00</th>
+                        <th>11:00</th>
+                        <th>12:00</th>
+                        <th>13:00</th>
+                        <th>14:00</th>
+                        <th>15:00</th>
+                        <th>16:00</th>
+                        <th>17:00</th>
+                        <th>18:00</th>
+                        <th>19:00</th>
+                        <th>20:00</th>
+                        <th>21:00</th>
+                        <th>22:00</th>
+                        <th>23:00</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <!-- START -->
+                        <tr id="tconfig"> <!-- t11 -->
+                            <th rowspan="2" id="r">Restaurante 0001</th>
+                            <td>Orçado</td>
+                            <td id="h0">0</td>
+                            <td id="h1">0</td>
+                            <td id="h2">0</td>
+                            <td id="h3">0</td>
+                            <td id="h4">0</td>
+                            <td id="h5">0</td>
+                            <td id="h6">1</td>
+                            <td id="h7">4</td>
+                            <td id="h8">12</td>
+                            <td id="h9">13</td>
+                            <td id="h10">15</td>
+                            <td id="h11">17</td>
+                            <td id="h12">18</td>
+                            <td id="h13">20</td>
+                            <td id="h14">19</td>
+                            <td id="h15">15</td>
+                            <td id="h16">21</td>
+                            <td id="h17">18</td>
+                            <td id="h18">14</td>
+                            <td id="h19">14</td>
+                            <td id="h20">13</td>
+                            <td id="h21">11</td>
+                            <td id="h22">0</td>
+                            <td id="h23">0</td>
+                            <td id="h24">0</td>
+                        </tr>
+                        <tr id="tconfig"> <!-- t12 -->
+                            <td>Realizado</td>
+                            <td id="h0">0</td>
+                            <td id="h1">0</td>
+                            <td id="h2">0</td>
+                            <td id="h3">0</td>
+                            <td id="h4">0</td>
+                            <td id="h5">1</td>
+                            <td id="h6">2</td>
+                            <td id="h7">4</td>
+                            <td id="h8">9</td>
+                            <td id="h9">10</td>
+                            <td id="h10">11</td>
+                            <td id="h11">12</td>
+                            <td id="h12">12</td>
+                            <td id="h13">13</td>
+                            <td id="h14">12</td>
+                            <td id="h15">12</td>
+                            <td id="h16">18</td>
+                            <td id="h17">15</td>
+                            <td id="h18">12</td>
+                            <td id="h19">12</td>
+                            <td id="h20">12</td>
+                            <td id="h21">11</td>
+                            <td id="h22">0</td>
+                            <td id="h23">0</td>
+                            <td id="h24">0</td>
+                        </tr>
+                        <!-- END -->
+    
+                    
+                    <!-- START -->
+                    <tr id="tconfig">
+                            <th rowspan="2" id="r">Restaurante 0002</th>
+                        <td>Orçado</td>
+                        <td id="h0">0</td>
+                        <td id="h1">0</td>
+                        <td id="h2">0</td>
+                        <td id="h3">0</td>
+                        <td id="h4">0</td>
+                        <td id="h5">0</td>
+                        <td id="h6">1</td>
+                        <td id="h7">4</td>
+                        <td id="h8">12</td>
+                        <td id="h9">13</td>
+                        <td id="h10">15</td>
+                        <td id="h11">17</td>
+                        <td id="h12">18</td>
+                        <td id="h13">20</td>
+                        <td id="h14">19</td>
+                        <td id="h15">15</td>
+                        <td id="h16">21</td>
+                        <td id="h17">18</td>
+                        <td id="h18">14</td>
+                        <td id="h19">14</td>
+                        <td id="h20">13</td>
+                        <td id="h21">11</td>
+                        <td id="h22">0</td>
+                        <td id="h23">0</td>
+                        <td id="h24">0</td>
+                    </tr>
+                    <tr id="tconfig">
+                        <td>Realizado</td>
+                        <td id="h0">0</td>
+                        <td id="h1">0</td>
+                        <td id="h2">0</td>
+                        <td id="h3">0</td>
+                        <td id="h4">0</td>
+                        <td id="h5">1</td>
+                        <td id="h6">2</td>
+                        <td id="h7">4</td>
+                        <td id="h8">13</td>
+                        <td id="h9">10</td>
+                        <td id="h10">11</td>
+                        <td id="h11">12</td>
+                        <td id="h12">12</td>
+                        <td id="h13">13</td>
+                        <td id="h14">12</td>
+                        <td id="h15">12</td>
+                        <td id="h16">18</td>
+                        <td id="h17">15</td>
+                        <td id="h18">12</td>
+                        <td id="h19">12</td>
+                        <td id="h20">12</td>
+                        <td id="h21">11</td>
+                        <td id="h22">0</td>
+                        <td id="h23">0</td>
+                        <td id="h24">0</td>
+                    </tr>
+                    <!-- END -->
+    
+                    
+                    <!-- START -->
+                    <tr id="tconfig">
+                        <th rowspan="2" id="r">Restaurante 0003</th>
+                        <td>Orçado</td>
+                        <td id="h0">0</td>
+                        <td id="h1">0</td>
+                        <td id="h2">0</td>
+                        <td id="h3">0</td>
+                        <td id="h4">0</td>
+                        <td id="h5">0</td>
+                        <td id="h6">1</td>
+                        <td id="h7">4</td>
+                        <td id="h8">12</td>
+                        <td id="h9">13</td>
+                        <td id="h10">15</td>
+                        <td id="h11">17</td>
+                        <td id="h12">18</td>
+                        <td id="h13">20</td>
+                        <td id="h14">19</td>
+                        <td id="h15">15</td>
+                        <td id="h16">21</td>
+                        <td id="h17">18</td>
+                        <td id="h18">14</td>
+                        <td id="h19">14</td>
+                        <td id="h20">13</td>
+                        <td id="h21">11</td>
+                        <td id="h22">0</td>
+                        <td id="h23">0</td>
+                        <td id="h24">0</td>
+                    </tr>
+                    <tr id="tconfig">
+                        <td>Realizado</td>
+                        <td id="h0">0</td>
+                        <td id="h1">0</td>
+                        <td id="h2">0</td>
+                        <td id="h3">0</td>
+                        <td id="h4">0</td>
+                        <td id="h5">1</td>
+                        <td id="h6">2</td>
+                        <td id="h7">4</td>
+                        <td id="h8">9</td>
+                        <td id="h9">14</td>
+                        <td id="h10">11</td>
+                        <td id="h11">12</td>
+                        <td id="h12">12</td>
+                        <td id="h13">13</td>
+                        <td id="h14">12</td>
+                        <td id="h15">12</td>
+                        <td id="h16">18</td>
+                        <td id="h17">15</td>
+                        <td id="h18">12</td>
+                        <td id="h19">12</td>
+                        <td id="h20">12</td>
+                        <td id="h21">11</td>
+                        <td id="h22">0</td>
+                        <td id="h23">0</td>
+                        <td id="h24">0</td>
+                    </tr>
+                    <!-- END -->
+    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <script>
+        window.onload = function() {
+            doIDDefinition();
+            
+            doSum();
+            attTime();
+        }
+
+        $("th[id*='r']").click(function() {
+            location.href = "restaurantes.html";
+        });
+
+        function doIDDefinition() {
+            var x=1;
+            var y=1;
+            var tconfig = $("tr#tconfig");
+            tconfig.each(function() {
+                if(y > 2) {
+                    x++;
+                    y=1;
+                }
+                $(this).attr("id", "t"+x+y);
+                y++;
+            });
+        }
+
+        function doSum() {
+            var tr = $("tr");
+            for(var x=1;x<=tr.length;x++) {
+                totalSum(x);
+                colorSum(x);
+            }
+        }
+        
+        function totalSum(x) {
+            var expecificTD1 = $("tr#t"+x+"1 > td#h24");
+            var expecificTD2 = $("tr#t"+x+"2 > td#h24");
+
+            var allTD1 = $("tr#t"+x+"1 > td[id*='h']");
+            var total1=0;
+            var allTD2 = $("tr#t"+x+"2 > td[id*='h']");
+            var total2=0;
+            allTD1.each(function() {
+                total1 += Number($(this).text());
+            });
+            allTD2.each(function() {
+                total2 += Number($(this).text());
+            });
+            expecificTD1.text(total1);
+            expecificTD2.text(total2);
+
+        }
+
+        function colorSum(x) {
+            var tr1 = $("tr#t"+x+"1");
+            var tr2 = $("tr#t"+x+"2");
+            for(var i=0; i<=24; i++) {
+                var td1 = tr1.find("td#h"+i);
+                var td2 = tr2.find("td#h"+i);
+                var n1 = tr1.find("td#h"+i).text();
+                var n2 = tr2.find("td#h"+i).text();
+                var color;
+                if(Number(n2) === Number(n1)) {
+                    color = "rgba(255, 255, 0, 0.4)";
+
+                }else if(Number(n2) > Number(n1)) {
+                    color = "rgba(0, 0, 255, 0.4)";
+
+                }else if(Number(n2) < Number(n1)) {
+                    color = "rgba(255, 0, 0, 0.4)";
+                }else{
+                    color = "rgba(0, 255, 0, 0.4)";
+                }
+                td2.css("background", color);
+            }
+        }
+
+        function attTime() {
+            var dt = new Date(Date.now());
+            var datevar = dt.getFullYear() + "-" +
+                    (dt.getMonth() < 10 ? "0" + Number(dt.getMonth()+1) : Number(dt.getMonth()+1)) + "-" + 
+                    (dt.getDate() < 10 ? "0" + dt.getDate() : dt.getDate());
+
+            $('#dataSelector').attr('value', datevar); //2017-06-01
+            attDate();
+
+            var x=120;
+            setInterval(function() {
+                if(x == 0) {
+                    $("#att").text("Sua será atualizada");
+                    location.reload();
+                }
+                $("#att").text("Atualizando em "+x+"s");
+                x--;
+            }, 1 * 1000); //1s * 1000millisec
+        }
+
+        function attDate() {
+            var data = $('#dataSelector').val();
+            createCookie("data", data, 1);
+            //att tabela
+            console.log("cookie definido: " + readCookie("data"));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.js"></script>
+    <script src="assets/js/codes.js"></script>
+    <!-- C3.js -->
+    <link rel="stylesheet" href="assets/chart/c3.min.css" />
+    <script src="assets/chart/c3.min.js"></script>
+    <script src="assets/chart/d3-5.4.0.min.js"></script>
+    <!-- Exportar -->
+    <link rel="stylesheet" link="https://unpkg.com/tableexport@5.2.0/dist/css/tableexport.min.css" />
+    <script type="text/javascript" src="https://unpkg.com/tableexport@5.2.0/dist/js/tableexport.min.js"></script>
+
+    <title>BurgerKing: Gerenciamento</title>
+</head>
+<body>
+
+    <div class="conteudo">
+
+        <div class="row text-center">
+            <div class="col-sm-2 align-self-center">
+                <h6 id="att">Carregando informações</h6>
+            </div>
+            <div class="col-sm-7" style="height: 100%">
+                <p>Mostrando as informações da unidade. Para visualizar as informações de todas unidades, clique em voltar.</p>
+            </div>
+            <div class="col-sm-3 align-self-center">
+                
+                <div class="input-group input-group-sm">
+                        
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-success" type="button" onclick="attDate()">Atualizar</button>
+                    </div>
+                    <input id="dataSelector" type="date">
+                    <button class="btn btn-outline-danger btn-sm" onclick="$(location).attr('href', 'index.html')">Voltar</button>
+                </div>
+            </div>
+
+            <div class="col-sm-12" style="border-top: 1px solid #eeeeee">
+                <h4>Restaurante 0001</h4>
+            </div>
+        </div>
+
+        
+        <div class="row" style="margin-top: 3rem; margin-bottom: 5rem;">
+            <div class="col-sm-6">
+                <h4 class="text-center">Total do dia em minutos</h4>
+                <div class="graphMin" style="height: 300px; width: 100%;" style="color: #676a6c;"></div>
+            </div>
+            <div class="col-sm-6">
+                <h4 class="text-center">Total do dia em quantidade</h4>
+                <div class="graphQtd" style="height: 300px; width: 100%;"></div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="text-left col-md-6 col-sm-12" style="float:left">
+            <input type="text" class="form-control" name="funcionarioSelector" id="funcionarioSelector"
+                    placeholder="Buscar funcionário">
+            </div>
+            <div class="text-right col-md-6 col-sm-12">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown">Colunas(MUDAR)</button>
+                <div class="dropdown-menu dropdown-custom">
+                    <a class="dropdown-item vermelho notdisabled" href="#" id="ferias"   >Férias</a>
+                    <a class="dropdown-item vermelho notdisabled" href="#" id="folga"    >Folga</a>
+                </div>
+                <button class="btn btn-outline-success" onclick="exportTableToExcel()">Excel</button>
+                <button class="btn btn-outline-primary" onclick="printTable()">Imprimir</button>
+            </div>
+        </div>
+
+
+        <div class="table-responsive" style="margin-top: 2rem;">
+            <table class="table" id="table">
+                <thead>
+                    <tr>
+                        <th>Funcionários</th>
+                        <th>Dados</th>
+                        <th>00:00</th>
+                        <th>01:00</th>
+                        <th>02:00</th>
+                        <th>03:00</th>
+                        <th>04:00</th>
+                        <th>05:00</th>
+                        <th>06:00</th>
+                        <th>07:00</th>
+                        <th>08:00</th>
+                        <th>09:00</th>
+                        <th>10:00</th>
+                        <th>11:00</th>
+                        <th>12:00</th>
+                        <th>13:00</th>
+                        <th>14:00</th>
+                        <th>15:00</th>
+                        <th>16:00</th>
+                        <th>17:00</th>
+                        <th>18:00</th>
+                        <th>19:00</th>
+                        <th>20:00</th>
+                        <th>21:00</th>
+                        <th>22:00</th>
+                        <th>23:00</th>
+                        <th>Total</th>
+                        <th>Desvio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- START -->
+                    <tr id="tconfig"> <!-- T 11 -->
+                        <th rowspan="2">ALESSANDRA RIBEIRO DE SOUZA</th>
+                        <td>Orçado</td>
+                        <td id="h0">0</td>
+                        <td id="h1">0</td>
+                        <td id="h2">0</td>
+                        <td id="h3">0</td>
+                        <td id="h4">0</td>
+                        <td id="h5">0</td>
+                        <td id="h6">0</td>
+                        <td id="h7">0</td>
+                        <td id="h8">0</td>
+                        <td id="h9">10</td>
+                        <td id="h10">60</td>
+                        <td id="h11">60</td>
+                        <td id="h12">60</td>
+                        <td id="h13">60</td>
+                        <td id="h14">60</td>
+                        <td id="h15">60</td>
+                        <td id="h16">0</td>
+                        <td id="h17">20</td>
+                        <td id="h18">0</td>
+                        <td id="h19">0</td>
+                        <td id="h20">0</td>
+                        <td id="h21">0</td>
+                        <td id="h22">0</td>
+                        <td id="h23">0</td>
+                        <td id="h24">0</td>
+                        <th id="desvio" rowspan="2">0</th>
+                    </tr>
+                    <tr id="tconfig">
+                        <td>Realizado</td>
+                        <td id="h0">0</td>
+                        <td id="h1">0</td>
+                        <td id="h2">0</td>
+                        <td id="h3">0</td>
+                        <td id="h4">0</td>
+                        <td id="h5">0</td>
+                        <td id="h6">0</td>
+                        <td id="h7">0</td>
+                        <td id="h8">0</td>
+                        <td id="h9">20</td>
+                        <td id="h10">60</td>
+                        <td id="h11">60</td>
+                        <td id="h12">21</td>
+                        <td id="h13">40</td>
+                        <td id="h14">60</td>
+                        <td id="h15">60</td>
+                        <td id="h16">60</td>
+                        <td id="h17">60</td>
+                        <td id="h18">20</td>
+                        <td id="h19">0</td>
+                        <td id="h20">0</td>
+                        <td id="h21">0</td>
+                        <td id="h22">0</td>
+                        <td id="h23">0</td>
+                        <td id="h24">0</td>
+                    </tr>
+                    <!-- END -->
+                    <!-- START -->
+                    <tr id="tconfig">
+                        <th rowspan="2">ANA LUIZA MAGALHAES ARAGAO</th>
+                        <td>Orçado</td>
+                        <td id="h0">0</td>
+                        <td id="h1">0</td>
+                        <td id="h2">0</td>
+                        <td id="h3">0</td>
+                        <td id="h4">0</td>
+                        <td id="h5">0</td>
+                        <td id="h6">0</td>
+                        <td id="h7">0</td>
+                        <td id="h8">0</td>
+                        <td id="h9">0</td>
+                        <td id="h10">0</td>
+                        <td id="h11">0</td>
+                        <td id="h12">0</td>
+                        <td id="h13">0</td>
+                        <td id="h14">0</td>
+                        <td id="h15">0</td>
+                        <td id="h16">0</td>
+                        <td id="h17">60</td>
+                        <td id="h18">60</td>
+                        <td id="h19">60</td>
+                        <td id="h20">60</td>
+                        <td id="h21">30</td>
+                        <td id="h22">60</td>
+                        <td id="h23">30</td>
+                        <td id="h24">0</td>
+                        <th id="desvio" rowspan="2">0</th>
+                    </tr>
+                    <tr id="tconfig">
+                        <td>Realizado</td>
+                        <td id="h0">0</td>
+                        <td id="h1">0</td>
+                        <td id="h2">0</td>
+                        <td id="h3">0</td>
+                        <td id="h4">0</td>
+                        <td id="h5">0</td>
+                        <td id="h6">0</td>
+                        <td id="h7">0</td>
+                        <td id="h8">0</td>
+                        <td id="h9">0</td>
+                        <td id="h10">0</td>
+                        <td id="h11">0</td>
+                        <td id="h12">0</td>
+                        <td id="h13">0</td>
+                        <td id="h14">0</td>
+                        <td id="h15">0</td>
+                        <td id="h16">0</td>
+                        <td id="h17">60</td>
+                        <td id="h18">60</td>
+                        <td id="h19">51</td>
+                        <td id="h20">36</td>
+                        <td id="h21">60</td>
+                        <td id="h22">60</td>
+                        <td id="h23">36</td>
+                        <td id="h24">0</td>
+                    </tr>
+                    <!-- END -->
+                    <!-- START -->
+                    <tr id="tconfig">
+                        <th rowspan="2">ANA SILVIA VIEIRA <small id="ferias">FERIAS</small> </th>
+                        <td>Orçado</td>
+                        <td id="h0">0</td>
+                        <td id="h1">0</td>
+                        <td id="h2">0</td>
+                        <td id="h3">0</td>
+                        <td id="h4">0</td>
+                        <td id="h5">0</td>
+                        <td id="h6">0</td>
+                        <td id="h7">0</td>
+                        <td id="h8">0</td>
+                        <td id="h9">0</td>
+                        <td id="h10">0</td>
+                        <td id="h11">0</td>
+                        <td id="h12">60</td>
+                        <td id="h13">60</td>
+                        <td id="h14">60</td>
+                        <td id="h15">0</td>
+                        <td id="h16">60</td>
+                        <td id="h17">60</td>
+                        <td id="h18">60</td>
+                        <td id="h19">60</td>
+                        <td id="h20">20</td>
+                        <td id="h21">0</td>
+                        <td id="h22">0</td>
+                        <td id="h23">0</td>
+                        <td id="h24">0</td>
+                        <th id="desvio" rowspan="2">0</th>
+                    </tr>
+                    <tr id="tconfig">
+                        <td>Realizado</td>
+                        <td id="h0">0</td>
+                        <td id="h1">0</td>
+                        <td id="h2">0</td>
+                        <td id="h3">0</td>
+                        <td id="h4">0</td>
+                        <td id="h5">0</td>
+                        <td id="h6">0</td>
+                        <td id="h7">0</td>
+                        <td id="h8">0</td>
+                        <td id="h9">0</td>
+                        <td id="h10">0</td>
+                        <td id="h11">0</td>
+                        <td id="h12">50</td>
+                        <td id="h13">60</td>
+                        <td id="h14">60</td>
+                        <td id="h15">60</td>
+                        <td id="h16">3</td>
+                        <td id="h17">56</td>
+                        <td id="h18">60</td>
+                        <td id="h19">60</td>
+                        <td id="h20">56</td>
+                        <td id="h21">0</td>
+                        <td id="h22">0</td>
+                        <td id="h23">0</td>
+                        <td id="h24">0</td>
+                    </tr>
+                    <!-- END -->
+                    <!-- START -->
+                    <tr id="tconfig">
+                        <th rowspan="2">BARBARA LUANA GOMES DE OLIVEIRA</th>
+                        <td>Orçado</td>
+                        <td id="h0">0</td>
+                        <td id="h1">0</td>
+                        <td id="h2">0</td>
+                        <td id="h3">0</td>
+                        <td id="h4">0</td>
+                        <td id="h5">0</td>
+                        <td id="h6">0</td>
+                        <td id="h7">0</td>
+                        <td id="h8">60</td>
+                        <td id="h9">60</td>
+                        <td id="h10">60</td>
+                        <td id="h11">60</td>
+                        <td id="h12">30</td>
+                        <td id="h13">30</td>
+                        <td id="h14">60</td>
+                        <td id="h15">60</td>
+                        <td id="h16">20</td>
+                        <td id="h17">0</td>
+                        <td id="h18">0</td>
+                        <td id="h19">0</td>
+                        <td id="h20">0</td>
+                        <td id="h21">0</td>
+                        <td id="h22">0</td>
+                        <td id="h23">0</td>
+                        <td id="h24">0</td>
+                        <th id="desvio" rowspan="2">0</th>
+                    </tr>
+                    <tr id="tconfig">
+                        <td>Realizado</td>
+                        <td id="h0">0</td>
+                        <td id="h1">0</td>
+                        <td id="h2">0</td>
+                        <td id="h3">0</td>
+                        <td id="h4">0</td>
+                        <td id="h5">0</td>
+                        <td id="h6">7</td>
+                        <td id="h7">60</td>
+                        <td id="h8">60</td>
+                        <td id="h9">60</td>
+                        <td id="h10">60</td>
+                        <td id="h11">27</td>
+                        <td id="h12">0</td>
+                        <td id="h13">0</td>
+                        <td id="h14">0</td>
+                        <td id="h15">0</td>
+                        <td id="h16">35</td>
+                        <td id="h17">60</td>
+                        <td id="h18">60</td>
+                        <td id="h19">60</td>
+                        <td id="h20">60</td>
+                        <td id="h21">60</td>
+                        <td id="h22">60</td>
+                        <td id="h23">60</td>
+                        <td id="h24">0</td>
+                    </tr>
+                    <!-- END -->
+                    <!-- START -->
+                    <tr id="tconfig">
+                        <th rowspan="2">CHRISTOPHER CORDEIRO DE ALMEIDA SILVA <small id="folga">FOLGA</small> </th>
+                        <td>Orçado</td>
+                        <td id="h0">0</td>
+                        <td id="h1">0</td>
+                        <td id="h2">0</td>
+                        <td id="h3">0</td>
+                        <td id="h4">0</td>
+                        <td id="h5">0</td>
+                        <td id="h6">0</td>
+                        <td id="h7">0</td>
+                        <td id="h8">0</td>
+                        <td id="h9">0</td>
+                        <td id="h10">0</td>
+                        <td id="h11">0</td>
+                        <td id="h12">0</td>
+                        <td id="h13">0</td>
+                        <td id="h14">0</td>
+                        <td id="h15">0</td>
+                        <td id="h16">0</td>
+                        <td id="h17">60</td>
+                        <td id="h18">60</td>
+                        <td id="h19">60</td>
+                        <td id="h20">60</td>
+                        <td id="h21">30</td>
+                        <td id="h22">60</td>
+                        <td id="h23">30</td>
+                        <td id="h24">0</td>
+                        <th id="desvio" rowspan="2">0</th>
+                    </tr>
+                    <tr id="tconfig">
+                        <td>Realizado</td>
+                        <td id="h0">0</td>
+                        <td id="h1">0</td>
+                        <td id="h2">0</td>
+                        <td id="h3">0</td>
+                        <td id="h4">0</td>
+                        <td id="h5">0</td>
+                        <td id="h6">0</td>
+                        <td id="h7">0</td>
+                        <td id="h8">0</td>
+                        <td id="h9">0</td>
+                        <td id="h10">0</td>
+                        <td id="h11">0</td>
+                        <td id="h12">0</td>
+                        <td id="h13">0</td>
+                        <td id="h14">0</td>
+                        <td id="h15">0</td>
+                        <td id="h16">0</td>
+                        <td id="h17">60</td>
+                        <td id="h18">60</td>
+                        <td id="h19">60</td>
+                        <td id="h20">29</td>
+                        <td id="h21">60</td>
+                        <td id="h22">60</td>
+                        <td id="h23">35</td>
+                        <td id="h24">0</td>
+                    </tr>
+                    <!-- END -->
+
+                    <!-- Calculos dos Minutos-->
+                    <tr id="tconfig" class="results r11"> 
+                        <th rowspan="2" colspan="2">Total do dia em <i>minutos</i></th>
+                        <td id="h0">0</td>
+                        <td id="h1">0</td>
+                        <td id="h2">0</td>
+                        <td id="h3">0</td>
+                        <td id="h4">0</td>
+                        <td id="h5">0</td>
+                        <td id="h6">0</td>
+                        <td id="h7">0</td>
+                        <td id="h8">0</td>
+                        <td id="h9">0</td>
+                        <td id="h10">0</td>
+                        <td id="h11">0</td>
+                        <td id="h12">0</td>
+                        <td id="h13">0</td>
+                        <td id="h14">0</td>
+                        <td id="h15">0</td>
+                        <td id="h16">0</td>
+                        <td id="h17">0</td>
+                        <td id="h18">0</td>
+                        <td id="h19">0</td>
+                        <td id="h20">0</td>
+                        <td id="h21">0</td>
+                        <td id="h22">0</td>
+                        <td id="h23">0</td>
+                        <td id="h24">0</td>
+                    </tr>
+
+                    <tr id="tconfig" class="results r12">
+                        <td id="h0">0</td>
+                        <td id="h1">1</td>
+                        <td id="h2">2</td>
+                        <td id="h3">3</td>
+                        <td id="h4">4</td>
+                        <td id="h5">5</td>
+                        <td id="h6">6</td>
+                        <td id="h7">7</td>
+                        <td id="h8">8</td>
+                        <td id="h9">9</td>
+                        <td id="h10">10</td>
+                        <td id="h11">11</td>
+                        <td id="h12">12</td>
+                        <td id="h13">13</td>
+                        <td id="h14">14</td>
+                        <td id="h15">15</td>
+                        <td id="h16">16</td>
+                        <td id="h17">17</td>
+                        <td id="h18">18</td>
+                        <td id="h19">19</td>
+                        <td id="h20">20</td>
+                        <td id="h21">21</td>
+                        <td id="h22">22</td>
+                        <td id="h23">23</td>
+                        <td id="h24">0</td>
+                    </tr>
+                    <!-- Final calculo dos minutos-->
+                    
+                    <!-- Calculos do dia -->
+                    <tr id="tconfig" class="results r21"> 
+                        <th rowspan="2" colspan="2">Total do dia em <i>quantidade</i></th>
+                        <td id="h0">0</td>
+                        <td id="h1">0</td>
+                        <td id="h2">0</td>
+                        <td id="h3">0</td>
+                        <td id="h4">0</td>
+                        <td id="h5">0</td>
+                        <td id="h6">0</td>
+                        <td id="h7">0</td>
+                        <td id="h8">0</td>
+                        <td id="h9">0</td>
+                        <td id="h10">0</td>
+                        <td id="h11">0</td>
+                        <td id="h12">0</td>
+                        <td id="h13">0</td>
+                        <td id="h14">0</td>
+                        <td id="h15">0</td>
+                        <td id="h16">0</td>
+                        <td id="h17">0</td>
+                        <td id="h18">0</td>
+                        <td id="h19">0</td>
+                        <td id="h20">0</td>
+                        <td id="h21">0</td>
+                        <td id="h22">0</td>
+                        <td id="h23">0</td>
+                        <td id="h24">0</td>
+                    </tr>
+
+                    <tr id="tconfig" class="results r22">
+                        <td id="h0">0</td>
+                        <td id="h1">0</td>
+                        <td id="h2">0</td>
+                        <td id="h3">0</td>
+                        <td id="h4">0</td>
+                        <td id="h5">0</td>
+                        <td id="h6">0</td>
+                        <td id="h7">0</td>
+                        <td id="h8">0</td>
+                        <td id="h9">0</td>
+                        <td id="h10">0</td>
+                        <td id="h11">0</td>
+                        <td id="h12">0</td>
+                        <td id="h13">0</td>
+                        <td id="h14">0</td>
+                        <td id="h15">0</td>
+                        <td id="h16">0</td>
+                        <td id="h17">0</td>
+                        <td id="h18">0</td>
+                        <td id="h19">0</td>
+                        <td id="h20">0</td>
+                        <td id="h21">0</td>
+                        <td id="h22">0</td>
+                        <td id="h23">0</td>
+                        <td id="h24">00</td>
+                    </tr>
+                    <!-- Final calculo do dia -->
+
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            doIDDefinition();
+            
+            attFiltroTable();
+            doSum();
+            attTime();
+
+            drawGraphMin();
+            drawGraphQtd();
+        }
+
+        function doSum() {
+            var tr = $("tr:not(.results)");
+            for(var x=0; x<=24; x++) {
+                minSum(x);
+                qtdSum(x);
+            }
+            for(var x=1;x<=tr.length;x++) {
+                totalSum(x);
+                colorSum(x);
+            }
+        }
+
+        function doIDDefinition() {
+            var x=1;
+            var y=1;
+            var tconfig = $("tr#tconfig");
+            tconfig.each(function() {
+                if(y > 2) {
+                    x++;
+                    y=1;
+                }
+                $(this).attr("id", "t"+x+y);
+                y++;
+            });
+        }
+
+        function minSum(h) {
+            var total=0;
+            var total2=0;
+            var x=1;
+            var trs = $("tbody tr:not(.results):not(.notdisabled)");
+            trs.each(function() {
+                var td = $("tbody tr#t"+x+"1:not(.notdisabled):not(.results) td#h"+h); //t11, t21, t31, t41
+                var td2 = $("tbody tr#t"+x+"2:not(.notdisabled):not(.results) td#h"+h); //t12, t22, t32, t42
+                total  += Number(td.text());
+                total2 += Number(td2.text());
+                x++;
+            });
+            $("tr.r11 td#h"+h).text(total);
+            $("tr.r12 td#h"+h).text(total2);
+        }
+
+        //pegar each tr -> pegar cada td -> pegar quantidade hE -> ignorar hE com valor nulo
+        function qtdSum(h) {
+            total=0;
+            total2=0;
+            x=1; //fix bugs
+            var trs = $("tr[id*='t']:not(.results):not(.notdisabled)");
+            for(var x=1; x <= trs.length; x++) {
+                var td  = $("tr#t"+x+"1:not(.results):not(.notdisabled) td#h"+h);
+                if( Number(td.text()) > 0) {
+                    total++;
+                }
+                var td2 = $("tr#t"+x+"2:not(.results):not(.notdisabled) td#h"+h);
+                if( Number(td2.text()) > 0) {
+                    total2++;
+                }
+            }
+            $("tr.r21 td#h"+h).text(total);
+            $("tr.r22 td#h"+h).text(total2);
+        }
+        
+        function totalSum(x) {
+            var expecificTD1 = $("tr#t"+x+"1 > td#h24");
+            var expecificTD2 = $("tr#t"+x+"2 > td#h24");
+
+            var allTD1 = $("tr#t"+x+"1 > td[id*='h']");
+            var total1=0;
+            var allTD2 = $("tr#t"+x+"2 > td[id*='h']");
+            var total2=0;
+            allTD1.each(function() {
+                total1 += Number($(this).text());
+            });
+            allTD2.each(function() {
+                total2 += Number($(this).text());
+            });
+            expecificTD1.text(total1);
+            expecificTD2.text(total2);
+
+            var tdesvio = total2 - total1;
+            $("tr#t"+x+"1:not(.results) > th#desvio").text(tdesvio);
+        }
+
+        function colorSum(x) {
+            var tr1 = $("tr#t"+x+"1");
+            var tr2 = $("tr#t"+x+"2");
+            for(var i=0; i<=24; i++) {
+                var td1 = tr1.find("td#h"+i);
+                var td2 = tr2.find("td#h"+i);
+                var n1 = tr1.find("td#h"+i).text();
+                var n2 = tr2.find("td#h"+i).text();
+                var color;
+                if(Number(n2) === Number(n1)) {
+                    color = "rgba(255, 255, 0, 0.3)";
+
+                }else if(Number(n2) > Number(n1)) {
+                    color = "rgba(0, 0, 255, 0.3)";
+
+                }else if(Number(n2) < Number(n1)) {
+                    color = "rgba(255, 0, 0, 0.3)";
+                }
+                td2.css("background", color);
+            }
+
+            //Desvio colorset
+            var desv = tr1.find("#desvio");
+            if( Number(desv.text()) > 0 ) {
+                desv.css("background", "rgba(0, 255, 0, 0.3)");
+            }else{
+                desv.css("background", "rgba(249, 166, 2, 0.3)");
+            }
+        }
+
+        function attTime() {
+            var dt = new Date(Date.now());
+            
+            var datevar = dt.getFullYear() + "-" +
+                        (dt.getMonth() < 10 ? "0" + Number(dt.getMonth()+1) : Number(dt.getMonth()+1)) + "-" + 
+                        (dt.getDate() < 10 ? "0" + dt.getDate() : dt.getDate());
+
+            var data = readCookie("data");
+            if(data == datevar) {
+                var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+                $("#att").text("Dados recolhidos às " + time);
+                $('#dataSelector').attr('value', datevar); //2017-06-01  
+                console.log("mesmo dia")
+            }else if(data == null) {
+                $('#dataSelector').attr('value', datevar); //2017-06-01
+            }else{
+                console.log("cookie lido: " + readCookie("data"));
+                var arr = data.split("-");
+                $('#dataSelector').attr('value', data); //2017-06-01  
+                $("#att").text("Dados do dia " + arr[2] + "/"+ arr[1] +"/"+ arr[0]);
+            }
+        }
+
+        function attDate() {
+            var data = $('#dataSelector').val();
+            createCookie("data", data, 1);
+            //att tabela
+            var arr = data.split("-");
+            $("#att").text("Dados do dia " + arr[2] + "/"+ arr[1] +"/"+ arr[0]);
+        }
+
+        function drawGraphMin() {
+            
+            function getHText(i, h) {
+                return Number($(".r1"+i+" > td#h"+h).text());
+            }
+
+            var chart = c3.generate({
+                bindto: ".graphMin",
+                tooltip: {
+                    format: {
+                        title: function (x, index) { return x + ':00'; }
+                    }
+                },
+                axis: {
+                    x: {
+                        label: {
+                            text: 'Horário'
+                        },
+                        tick: {
+                            format: function (x) { return x + ":00"; }
+                        }
+                    },
+                    y: {
+                        label: {
+                            text: 'Minutos',
+                            position: 'outer-middle'
+                        }
+                    }
+                },
+                data: {
+                    columns: [
+                        ['Orçado', 0, getHText(1, 1), getHText(1, 2), getHText(1, 3), getHText(1, 4), getHText(1, 5), 
+                                getHText(1, 6), getHText(1, 7), getHText(1, 8), getHText(1, 9), getHText(1, 10), 
+                                getHText(1, 11), getHText(1, 12),getHText(1, 13), getHText(1, 14), getHText(1, 15), 
+                                getHText(1, 16), getHText(1, 17), getHText(1, 18),getHText(1, 19), getHText(1, 20), 
+                                getHText(1, 21), getHText(1, 22), getHText(1, 23) ],
+
+                        ['Realizado', 0, getHText(2, 1), getHText(2, 2), getHText(2, 3), getHText(2, 4), getHText(2, 5), 
+                                getHText(2, 6), getHText(2, 7), getHText(2, 8), getHText(2, 9), getHText(2, 10), 
+                                getHText(2, 11),  getHText(2, 12), getHText(2, 13), getHText(2, 14), getHText(2, 15), 
+                                getHText(2, 16), getHText(2, 17), getHText(2, 18), getHText(2, 19), getHText(2, 20), 
+                                getHText(2, 21), getHText(2, 22), getHText(2, 23) ]
+                    ]
+                }
+            });
+        }
+
+        function drawGraphQtd() {
+            
+            function getHText(i, h) {
+                return Number($(".r2"+i+" > td#h"+h).text());
+            }
+
+            var chart = c3.generate({
+                bindto: ".graphQtd",
+                tooltip: {
+                    format: {
+                        title: function (x, index) { return x + ':00'; }
+                    }
+                },
+                axis: {
+                    x: {
+                        label: 'Horário',
+                        tick: {
+                            format: function (x) { return x + ":00"; }
+                        }
+                    },
+                    y: {
+                        label: {
+                            text: 'Quantidade',
+                            position: 'outer-middle'
+                        }
+                    }
+                },
+                data: {
+                    columns: [
+                        ['Orçado', "00", getHText(1, 1), getHText(1, 2), getHText(1, 3), getHText(1, 4), getHText(1, 5), 
+                                getHText(1, 6), getHText(1, 7), getHText(1, 8), getHText(1, 9), getHText(1, 10), 
+                                getHText(1, 11), getHText(1, 12),getHText(1, 13), getHText(1, 14), getHText(1, 15), 
+                                getHText(1, 16), getHText(1, 17), getHText(1, 18),getHText(1, 19), getHText(1, 20), 
+                                getHText(1, 21), getHText(1, 22), getHText(1, 23) ],
+
+                        ['Realizado', "00", getHText(2, 1), getHText(2, 2), getHText(2, 3), getHText(2, 4), getHText(2, 5), 
+                                getHText(2, 6), getHText(2, 7), getHText(2, 8), getHText(2, 9), getHText(2, 10), 
+                                getHText(2, 11), getHText(2, 12), getHText(2, 13), getHText(2, 14), getHText(2, 15), 
+                                getHText(2, 16), getHText(2, 17), getHText(2, 18), getHText(2, 19), getHText(2, 20), 
+                                getHText(2, 21), getHText(2, 22), getHText(2, 23) ]
+                    ]
+                }
+            });
+        }
+
+        $("#funcionarioSelector").keyup(function () {
+            var filtro = $(this).val().toLowerCase();
+            var x=1;
+            attFiltroTable();
+            $("table tbody tr:not(.results)").each(function() {
+                var tr1 = $("tr#t"+x+"1:not(.results)");
+                var valor = tr1.find("th");
+                if(valor.text().toLowerCase().indexOf(filtro) < 0) {
+                    tr1.hide();
+                    $("table tbody tr#t"+x+"2:not(.results)").hide();
+                }else{
+                    if(!tr1.hasClass("notdisabled")) {
+                        tr1.show();
+                        $("table tbody tr#t"+x+"2:not(.results)").show();
+                    }
+                }
+                x++;
+            });
+        });
+
+        //PEGAR FILTROS DESATIVADOS -> PASSAR POR TODOS TH -> CHECAR SE TH POSSUI O FILTRO DESATIVADO -> 
+        // -> DESATIVAR TH QUE POSSUI FILTRO
+        function attFiltroTable() {
+            var disabledItems = $("a.vermelho");
+            var disabledList = "";
+            disabledItems.each(function() {
+                disabledList += $(this).attr("id") + ",";
+            });
+
+            $("tr[id*='t']:not(.results) > th").each(function() {
+                var small = $(this).find("small");
+                if( small.length > 0 ) {
+                    if( disabledList != "" && disabledList.indexOf(small.attr("id")) !== -1 ) {
+                        small.parent().parent().        removeClass("notdisabled").show();
+                        small.parent().parent().next(). removeClass("notdisabled").show();
+                    }else{
+                        small.parent().parent().addClass("notdisabled").hide();
+                        small.parent().parent().next().addClass("notdisabled").hide();
+                    }
+                }
+            });
+        }
+
+        $("a.dropdown-item").click(function() {
+            var ditem = $(this);
+            if( ditem.hasClass("vermelho") ) {
+                ditem.removeClass("vermelho");
+            }else{
+                ditem.addClass("vermelho");
+            }
+
+            attFiltroTable();
+            doSum();
+            drawGraphMin();
+            drawGraphQtd();
+
+        });
+
+    </script>
+</body>
+</html>

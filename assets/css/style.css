@@ -1,0 +1,90 @@
+body {
+    font-size: 65%;
+    background: #2f4050;
+    padding: 10px;
+
+    font-family: 'Montserrat', sans-serif;
+    color: #676a6c;
+}
+
+div.conteudo {
+    background: #fafafa;
+    border-radius: 2px;
+    padding: 1.2rem;
+}
+
+div.conteudo div.row p{
+    font-size: 100%;
+    font-weight: 600;
+    color: inherit;
+}
+
+/* TABELA DESIGN */
+table {
+    text-align: center;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+    padding: .2rem;
+}
+
+tr.r11 {
+    border-top: 2px solid rgb(195, 197, 199);
+}
+
+.table thead th {
+    border-top: 0px;
+    border-bottom: 0px;
+    padding-bottom: 15px;
+    font-size: 85%;
+}
+
+thead tr th {
+    text-align: center;
+}
+
+thead tr th:not(:first-of-type):not(:last-of-type):not(:nth-child(2)) {
+    transform: rotate(-90deg);
+}
+
+td#h24 {
+    border-left: 1px solid #dee2e6;
+}
+
+tbody > tr > th:first-of-type, 
+tbody > tr:not(.results) > td:first-of-type,
+th#desvio {
+    background: rgb(0,0,0,0.05);
+}
+
+tbody > tr > th:first-of-type:hover {
+    background: rgb(0,0,0,0.1);
+    cursor: pointer;
+}
+
+tbody > tr > th > small {
+    color: #ED2939;
+    font-weight: bold;
+    font-size: 90%;
+    display: block;
+}
+
+input[type="date"] {
+    border: 0px;
+    margin: 0px;
+    padding: 2%;
+    width: 40%;
+
+    text-align: center;
+
+    border: 1px solid green;
+    background: white;
+}
+
+/* DROPDOWN - SHOW/HIDE */
+.dropdown-custom a.vermelho {
+    background: #ED2939;
+    color: white;
+    cursor: pointer;
+}
