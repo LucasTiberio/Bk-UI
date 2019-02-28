@@ -7,3 +7,4 @@ This page is officially being used in every Burger King in Brazil.
 * HTML Table optimization
 * Responsivity & bootstrap
 * Automated events
+* Export table as .xls OR print the table
