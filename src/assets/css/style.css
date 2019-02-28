@@ -88,3 +88,34 @@ input[type="date"] {
     color: white;
     cursor: pointer;
 }
+
+/* LEGENDA TABELA */
+div#box div.box, div#box span{
+    display: inline-block;
+    padding: 0;
+}
+
+div#box span {
+    text-transform: uppercase;
+    color: black;
+    font-size: 110%;
+}
+
+div.box {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    transition: all 0.5s;
+}
+
+div.box.yellow {
+    background: rgba(255, 255, 82, 0.7);
+}
+
+div.box.red {
+    background: rgba(255, 82, 82, 0.8);
+}
+
+div.box.blue {
+    background: rgba(82, 82, 255, 0.8);
+}

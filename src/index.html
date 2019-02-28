@@ -21,17 +21,20 @@
             <div class="col-sm-2">
                 <h6 id="att">Atualizando em 120s</h6>
             </div>
-            <div class="col-sm-7">
-                <p>Mostrando as informações de todas as unidades. Para visualizar uma unidade expecífica, clique no nome da unidade.</p>
+            <div class="col-sm-5">
+                <p>Para visualizar uma unidade expecífica, clique no nome da unidade.</p>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-5">
                 
-                <div class="input-group input-group-sm">
-                        
+                <div class="input-group input-group-sm ml-auto">
+                    <button class="btn btn-outline-success btn-sm" onclick="exportTableToExcel()">Excel</button>
+                    <button class="btn btn-outline-primary btn-sm ml-1" onclick="printTable()">Imprimir</button>
+                    <div class="mr-4"></div>
                     <div class="input-group-prepend">
                         <button class="btn btn-outline-success" type="button" onclick="attDate()">Atualizar</button>
                     </div>
                     <input id="dataSelector" type="date">
+                    <div class="ml-3"></div>
                     <button class="btn btn-outline-danger btn-sm">Sair</button>
 
                 </div>
@@ -39,10 +42,10 @@
         </div>
 
         <div class="table-responsive" style="margin-top: 1rem;">
-            <table class="table">
+            <table class="table" id="table">
                 <thead>
                     <tr>
-                        <th>Uniorg</th>
+                        <th>Local</th>
                         <th>Dados</th>
                         <th>00:00</th>
                         <th>01:00</th>
@@ -257,6 +260,17 @@
                 </tbody>
             </table>
         </div>
+        <div class="row text-center">
+            <div class="col-4" id="box">
+                <div class="box yellow align-middle"></div><span class="align-middle">Valor realizado igual ao orçado</span>
+            </div>
+            <div class="col-4" id="box">
+                <div class="box red align-middle"></div><span class="align-middle">Valor realizado menor que o orçado</span>
+            </div>
+            <div class="col-4" id="box">
+                <div class="box blue align-middle"></div><span class="align-middle">Valor realizado maior que o orçado</span>
+            </div>
+        </div>
     </div>
 
 
@@ -343,8 +357,11 @@
                     (dt.getMonth() < 10 ? "0" + Number(dt.getMonth()+1) : Number(dt.getMonth()+1)) + "-" + 
                     (dt.getDate() < 10 ? "0" + dt.getDate() : dt.getDate());
 
-            $('#dataSelector').attr('value', datevar); //2017-06-01
-            attDate();
+            if( readCookie("data") == null ) {
+                $('#dataSelector').attr('value', datevar); //2017-06-01
+            }else{
+                $('#dataSelector').attr('value', readCookie("data"));
+            }
 
             var x=120;
             setInterval(function() {
