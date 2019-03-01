@@ -1,7 +1,8 @@
-Licença Pública Creative Commons Atribuição-NãoComercial-SemDerivações 4.0 Internacional
-
 https://creativecommons.org/licenses/by-nc-nd/4.0/
 
+
+
+Licença Pública Creative Commons Atribuição-NãoComercial-SemDerivações 4.0 Internacional
 
 Ao exercer os Direitos Licenciados (definidos abaixo), Você aceita e concorda estar sujeito aos termos e condições desta Licença Pública Creative Commons Atribuição-NãoComercial-SemDerivações 4.0 Internacional ("Licença Pública"). Na medida em que esta Licença Pública possa ser interpretada como um contrato, Você recebe os Direitos Licenciados em contrapartida pela Sua aceitação destes termos e condições, e o Licenciante concede-Lhe tais direitos em contrapartida pelos benefícios que o Licenciante recebe por disponibilizar o Material Licenciado sob estes termos e condições.
 
