@@ -1,4 +1,4 @@
-# OFFICIAL BURGER KING MANAGER INTERFACE
+# BURGER KING MANAGER INTERFACE
 This project was developed by me in association with Phobos Tecnologia e Sistemas, representing the same. This web interface is officially being used in every Burger King in Brazil and shows informations about the employees and how much they are working.
 
 # LEARNING
